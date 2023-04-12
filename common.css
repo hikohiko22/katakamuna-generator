@@ -5,11 +5,14 @@
 
 body {
 	font-family: MyFont;
+    margin: 0;
 }
 .container {
-    width: 1684px;
-    height: 1684px;
-    display: block;
+    width: 1200px;
+    height: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     /* background-image: url(./bg.png); */
 }
@@ -18,14 +21,12 @@ body {
     font-size: 80px;
     text-align: center;
     margin: 0;
-    left: 50%;
-    top: 50%;
 }
 
 .circle-text > span {
 	position: absolute;
-	bottom: 0;
-	left: -66px;
+    bottom: -20px;
+    left: -20px;
 	display: inline-block;
 	width: 80px; /* 文字サイズより小さくしない */
 	height: 205px; /* 半径 */
@@ -206,9 +207,6 @@ body {
 .circle-text > span:nth-child(80) > span {transform: rotate(-928.2deg);}
 
 .center {
-    position: absolute;
-    left: 42%;
-    top: 43%;
     font-size: 200px;
     -webkit-text-stroke: 3px #FFF;
 }

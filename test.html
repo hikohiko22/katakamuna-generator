@@ -21,16 +21,32 @@
             circleText.appendChild(span);
         }
     }
+    
+    function updateZoom() {
+      const container = document.getElementById("container");
+      if (container === null) {
+          // #containerが存在しない場合は処理を中断する
+          return;
+      }
+      const windowWidth = window.innerWidth;
+      let pxRatio = windowWidth / 1400;
+      if (pxRatio > 1) {
+        pxRatio = 1;
+      }
+      const zoom = pxRatio / 1;
+      container.style.zoom = zoom;
+    }
+    
+    window.addEventListener("resize", updateZoom);
+    window.addEventListener("load", updateZoom); // DOMが読み込まれた時にupdateZoom()を実行する
 </script>
-
 </head>
 <body>
     <input type="text" id="input-text" placeholder="テキストを入力" />
-<button onclick="updateCircleText()">更新</button>
-
-<div class="container">
-    <div class="center">鏡</div>
-	<p class="circle-text"></p>
-</div>
+    <button onclick="updateCircleText()">更新</button>
+    <div id="container" class="container">
+        <div class="center">鏡</div>
+        <p class="circle-text"></p>
+    </div>
 </body>
 </html>
